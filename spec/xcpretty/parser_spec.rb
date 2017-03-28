@@ -558,7 +558,7 @@ module XCPretty
         @formatter.should_not receive(:format_warning).with("Another phase output")
         @parser.parse("Check dependencies")
         @parser.parse(SAMPLE_CHECK_DEPENDENCIES_WARNING)
-        @parser.parse("")
+        @parser.parse("\n")
         @parser.parse("Another phase output")
       end
     end

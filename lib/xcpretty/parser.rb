@@ -280,6 +280,8 @@ module XCPretty
       # @regex Captured groups
       # $1 = reference
       SYMBOL_REFERENCED_FROM_MATCHER = /\s+"(.*)", referenced from:$/
+
+      EMPTY_LINE_MATCHER = /^\s?$/
     end
   end
 
@@ -439,7 +441,7 @@ module XCPretty
         store_failure(file: $1, test_suite: @test_suite, test_case: @test_case, reason: $2)
       when CHECK_DEPENDENCIES_MATCHER
         @check_dependencies_phase = true
-      when ""
+      when EMPTY_LINE_MATCHER
         @check_dependencies_phase = false
       end
     end
